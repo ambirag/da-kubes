@@ -48,6 +48,10 @@ helm del --purge da
 ```
 
 # AWS Setup
+
+## Create Route53 Record
+Create a Route53 record for ".hub.test.yourcompany.com"
+
 ## Create CloudFormation stack
 - Update cloudformation.yaml with at-least two subnets (choose which has more free IP addresses), VPC and AWS account number and AMI ids
 - Create a new cloudformation stack using cloudformation/cloudformation.yaml file
@@ -109,3 +113,7 @@ Why we need this: https://aws.amazon.com/blogs/opensource/vpc-cni-plugin-v1-1-av
 ```kubectl get pods --all-namespaces --kubeconfig=config/test/kubeconfig```
 
 ```kubectl logs <get the traefik-ingress pod name> --namespace=kube-system --kubeconfig=config/test/kubeconfig```
+
+## Get Load Balancer URL
+```kubectl get pods,deployments,services --all-namespaces --kubeconfig=config/test/kubeconfig```
+Update the LB url in the Rout53 record created in the first step.
