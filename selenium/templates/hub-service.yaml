@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "selenium.hub.fullname" . }}
+  namespace: {{ .Release.Name }}
+  labels:
+    app: {{ template "selenium.hub.fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+{{- if .Values.hub.serviceAnnotations }}
+  annotations:
+{{ toYaml .Values.hub.serviceAnnotations | indent 4 }}
+{{- end }}
+spec:
+  type: {{ .Values.hub.serviceType | quote }}
+  sessionAffinity: {{ .Values.hub.serviceSessionAffinity | quote }}
+  ports:
+  - name: hub
+    port: {{ .Values.hub.port }}
+    targetPort: {{ .Values.hub.port }}
+  selector:
+    app: {{ template "selenium.hub.fullname" . }}
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "selenium.hub.fullname" . }}
+  namespace: {{ .Release.Name }}
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: {{ .Release.Name }}{{ .Values.hub.dns_suffix }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ template "selenium.hub.fullname" . }}
+          servicePort: 4444

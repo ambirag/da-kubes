@@ -1,0 +1,15 @@
+# Default values for traefik.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Test Values
+
+env: test
+loadbalancer:
+  tags: Name=Kubernetes,Environment=test-tools,Role=da-selfservice-ui
+  dns: traefik-web-ui.hub.test.yourcompany.com
+deployment:
+  replicas: 1
+tls:
+  crt:
+  key:
