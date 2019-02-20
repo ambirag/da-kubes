@@ -41,6 +41,7 @@ helm del --purge da
 
 # AWS Setup
 ## Create CloudFormation stack
+- Update cloudformation.yaml with at-least two subnets (choose which has more free IP addresses), VPC and AWS account number and AMI ids
 - Create a new cloudformation stack using cloudformation/cloudformation.yaml file
 - Wait for this task to complete
 
