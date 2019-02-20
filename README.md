@@ -71,7 +71,7 @@ ip-x-x-x-x.us-west-2.compute.internal   Ready     <none>    29s       v1.x.x
 ## Create Auto Scaler
 ```helm install cluster-autoscaler --name autoscaler --set "autoscalingGroups[0].name=DA-Kubes-NodeGroup-ZM3BO90YD8QN,autoscalingGroups[0].maxSize=20,autoscalingGroups[0].minSize=3" --kubeconfig=config/test/kubeconfig```
 
-Note: Get the value of this "autoscalingGroups[0].name" from CloudFormation from AWS Console -> Search for 'da-kube'
+Note: Get the value of this "autoscalingGroups[0].name" from CloudFormation from AWS Console -> Search for 'da-kube' or your given cluster name
 
 ## Check if autoscaler is running
 ```helm status autoscaler  --kubeconfig=config/test/kubeconfig```
