@@ -117,3 +117,9 @@ Why we need this: https://aws.amazon.com/blogs/opensource/vpc-cni-plugin-v1-1-av
 ## Get Load Balancer URL
 ```kubectl get pods,deployments,services --all-namespaces --kubeconfig=config/test/kubeconfig```
 Update the LB url in the Rout53 record created in the first step.
+
+## Contact
+For any questions, concerns, or problems, please feel free to contact the author Ragavan Ambighananthan at eelam.ragavan@gmail.com / https://twitter.com/ragsambi
+
+## License
+This project has been released under the GPL license. Please see the license.txt file for more details.
