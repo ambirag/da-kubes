@@ -5,9 +5,11 @@ Selenium Grid based Distributed Automation using Kubernetes, Docker, Traefik and
 Once you have successfully setup da-kube in AWS EKS, and if  your dns_suffix is ".hub.test.yourcompany.com"
 Then the following urls should work:
 
-### Traefik URL: https://traefik-web-ui.hub.test.yourcompany.com
-### Dashboard URL: https://dashboard.hub.test.yourcompany.com
-### Any hubs you create: https://<namespace_of_the_hub>.hub.test.yourcompany.com/grid/console
+[Traefik URL] (https://traefik-web-ui.hub.test.yourcompany.com)
+
+[Dashboard URL] (https://dashboard.hub.test.yourcompany.com)
+
+[Any hubs you create] (https://<namespace_of_the_hub>.hub.test.yourcompany.com/grid/console)
 
 ## Install
 Kubernetes version of Distributed Automation
