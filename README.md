@@ -1,6 +1,8 @@
 # da-kubes
 Selenium Grid based Distributed Automation using Kubernetes, Docker, Traefik and Helm
 
+Presented in Selenium Camp, Kiev in 2019 Feb - https://www.youtube.com/watch?v=MmdGyqNqs9w
+
 ## URLs
 Once you have successfully setup da-kube in AWS EKS, and if  your dns_suffix is ".hub.test.yourcompany.com"
 Then the following urls should work:
