@@ -118,6 +118,11 @@ Update crt and key in traefik/values.yaml with tls cert and key
 
 ```helm install traefik --kubeconfig=config/test/kubeconfig```
 
+- check if traefik is deployed correctly
+```kubectl get service --all-namespaces --kubeconfig=config/test/kubeconfig```
+```kubectl describe service traefik-ingress-service -n kube-system  --kubeconfig=config/test/kubeconfig```
+if you see "Error creating load balancer (will retry): failed to ensure load balancer for service kube-system/traefik-ingress-service: could not find any suitable subnets for creating the ELB". Go to AWS console, VPC -> select the VPC your EKS is running in, select the all DMZ subnets and check if all of them have a tag called "kubernetes.io/cluster/SelKube" with value "shared", DA-Kube is the name of the EKS cluster. If not, add it and check the status of the deployment again.
+
 ## Install Dashboard
 ```kubectl apply -f kubernetes-ingress/kubernetes-dashboard.yaml
 kubectl create -f kubernetes-ingress/ingress.yaml --kubeconfig config/test/kubeconfig-expweb-test
