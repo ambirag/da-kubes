@@ -95,7 +95,7 @@ Note: Get the value of this "autoscalingGroups[0].name" from CloudFormation from
 ```helm status autoscaler  --kubeconfig=config/test/kubeconfig```
 
 ## Get SSL Certificate
-ServiceNow and request for "SSL Certificate"  (internal, give your domain name like "*.hub.test.expweb.expedia.com")
+ServiceNow and request for "SSL Certificate"  (internal, give your domain name like "*.hub.yourcompany.com")
 Once you get the certificate, follow this process to get the cert and key AWS Certificates
 Now you have .pem and .key files, convert them to base64 and update the placeholders below (content of files within "" | base64 > file.txt, note: dont use -n option)
 ```
