@@ -7,11 +7,11 @@ Presented in Selenium Camp, Kiev in 2019 Feb - https://www.youtube.com/watch?v=M
 Once you have successfully setup da-kube in AWS EKS, and if  your dns_suffix is ".hub.test.yourcompany.com"
 Then the following urls should work:
 
-[Traefik URL] (https://traefik-web-ui.hub.test.yourcompany.com)
+[Traefik URL] (https://traefik-web-ui.hub.yourcompany.com)
 
-[Dashboard URL] (https://dashboard.hub.test.yourcompany.com)
+[Dashboard URL] (https://dashboard.hub.yourcompany.com)
 
-[Any hubs you create] (https://<namespace_of_the_hub>.hub.test.yourcompany.com/grid/console)
+[Any hubs you create] (https://<namespace_of_the_hub>.hub.yourcompany.com/grid/console)
 
 ## Install
 Kubernetes version of Distributed Automation
@@ -54,7 +54,7 @@ helm del --purge da
 # AWS Setup
 
 ## Create Route53 Record
-Create a Route53 record for ".hub.test.yourcompany.com"
+Create a Route53 record for ".hub.yourcompany.com"
 
 ## Create CloudFormation stack
 - Update cloudformation.yaml with at-least two subnets (choose which has more free IP addresses), VPC and AWS account number and AMI ids
