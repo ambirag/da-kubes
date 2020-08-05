@@ -15,7 +15,7 @@ spec:
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
         release: "{{ .Release.Name }}"
         heritage: "{{ .Release.Service }}"
-      annotations: 
+      annotations:
     spec:
       containers:
         - name: {{ .Chart.Name }}
@@ -27,9 +27,11 @@ spec:
               name: jmx
               protocol: TCP
             {{- end }}
-            - containerPort: 5900 
+            - containerPort: 5900
               name: vnc
           env:
+            - name: HUB_HOST
+              value: {{ template "selenium.hub.fullname" . }}
             - name: HUB_PORT_4444_TCP_ADDR
               value: {{ template "selenium.hub.fullname" . }}
             - name: HUB_PORT_4444_TCP_PORT

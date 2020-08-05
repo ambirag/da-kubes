@@ -19,6 +19,12 @@ spec:
   - name: hub
     port: {{ .Values.hub.port }}
     targetPort: {{ .Values.hub.port }}
+  - name: portsub
+    port: {{ .Values.hub.port_sub }}
+    targetPort: {{ .Values.hub.port_sub }}
+  - name: portpub
+    port: {{ .Values.hub.port_pub }}
+    targetPort: {{ .Values.hub.port_pub }}
   selector:
     app: {{ template "selenium.hub.fullname" . }}
 ---

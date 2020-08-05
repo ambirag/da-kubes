@@ -28,6 +28,8 @@ spec:
               protocol: TCP
             {{- end }}
           env:
+            - name: HUB_HOST
+              value: {{ template "selenium.hub.fullname" . }}
             - name: HUB_PORT_4444_TCP_ADDR
               value: {{ template "selenium.hub.fullname" . }}
             - name: HUB_PORT_4444_TCP_PORT
