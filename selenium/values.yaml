@@ -27,8 +27,8 @@ hub:
 
   ## The port which the hub listens on
   port: 4444
-  port_sub: 4442
-  port_pub: 4443
+  port_pub: 4442
+  port_sub: 4443
 
   ## Timeout for probe Hub readiness via HTTP request on Hub console
   readinessTimeout: 10
