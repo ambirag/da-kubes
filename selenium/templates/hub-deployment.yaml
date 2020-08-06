@@ -31,12 +31,6 @@ spec:
             {{- end }}
             - containerPort: {{ .Values.hub.port }}
               name: http
-            - containerPort: {{ .Values.hub.port_sub }}
-              name: portsub
-              protocol: TCP
-            - containerPort: {{ .Values.hub.port_pub }}
-              name: portpub
-              protocol: TCP
           livenessProbe:
             httpGet:
               path: /wd/hub/status
