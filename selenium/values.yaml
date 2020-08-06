@@ -4,7 +4,8 @@ global:
   ## can also be spceifed at chart level see below
   nodeSelector:
   #  label: value
-
+  #helm3
+  nameSpace: utap-dakube
   # Default values for traefik.
   # This is a YAML-formatted file.
   # Declare variables to be passed into your templates.

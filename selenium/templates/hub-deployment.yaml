@@ -1,18 +1,21 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "selenium.hub.fullname" . }}
-  namespace: {{ .Release.Name }}
+  namespace: {{ .Values.global.nameSpace }}
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "selenium.hub.fullname" . }}
   template:
     metadata:
       labels:
         app: {{ template "selenium.hub.fullname" . }}
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
-        release: "{{ .Release.Name }}"
+        release: "{{ .Values.global.nameSpace }}"
         heritage: "{{ .Release.Service }}"
       annotations:
     spec:

@@ -1,13 +1,16 @@
 {{- if eq true .Values.firefoxDebug.enabled -}}
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "selenium.firefoxDebug.fullname" . }}
-  namespace: {{ .Release.Name }}
+  namespace: {{ .Values.global.nameSpace }}
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
 spec:
   replicas: {{ .Values.firefoxDebug.replicas }}
+  selector:
+    matchLabels:
+      app: {{ template "selenium.firefoxDebug.fullname" . }}
   template:
     metadata:
       labels:

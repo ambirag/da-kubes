@@ -1,13 +1,16 @@
 {{- if eq true .Values.chrome.enabled -}}
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "selenium.chrome.fullname" . }}
-  namespace: {{ .Release.Name }}
+  namespace: {{ .Values.global.nameSpace }}
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
 spec:
   replicas: {{ .Values.chrome.replicas }}
+  selector:
+    matchLabels:
+      app: {{ template "selenium.chrome.fullname" . }}
   template:
     metadata:
       labels:
