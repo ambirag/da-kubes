@@ -31,8 +31,12 @@ spec:
               protocol: TCP
             {{- end }}
           env:
-            - name: HUB_HOST
+            - name: SE_EVENT_BUS_HOST
               value: {{ template "selenium.hub.fullname" . }}
+            - name: SE_EVENT_BUS_PUBLISH_PORT
+              value: "4442"
+            - name: SE_EVENT_BUS_SUBSCRIBE_PORT
+              value: "4443"
             - name: HUB_PORT_4444_TCP_ADDR
               value: {{ template "selenium.hub.fullname" . }}
             - name: HUB_PORT_4444_TCP_PORT
