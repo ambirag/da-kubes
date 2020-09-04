@@ -1,7 +1,14 @@
 # da-kubes
+
+# Video recording of presenting DA Kube in Selenium Conference
 Selenium Grid based Distributed Automation using Kubernetes, Docker, Traefik and Helm
 
 Presented in Selenium Camp, Kiev in 2019 Feb - https://www.youtube.com/watch?v=MmdGyqNqs9w
+
+# Medium Aritcle 
+[DA Kube — Selenium Grid using Kubernetes, Docker, Helm and Traefik](https://medium.com/expedia-group-tech/da-kube-selenium-grid-using-kubernetes-docker-helm-and-traefik-856b802d1d080
+[DA Kube with Selenium v4 Alpha 7](https://medium.com/@eelam.ragavan/selenium-grid-version-4-alpha-6-using-kubernetes-bfee32231c68)
+
 
 ## URLs
 Once you have successfully setup da-kube in AWS EKS, and if  your dns_suffix is ".hub.test.yourcompany.com"
