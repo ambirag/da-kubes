@@ -6,7 +6,7 @@ Selenium Grid based Distributed Automation using Kubernetes, Docker, Traefik and
 Presented in Selenium Camp, Kiev in 2019 Feb - https://www.youtube.com/watch?v=MmdGyqNqs9w
 
 # Medium Aritcle 
-[DA Kube — Selenium Grid using Kubernetes, Docker, Helm and Traefik](https://medium.com/expedia-group-tech/da-kube-selenium-grid-using-kubernetes-docker-helm-and-traefik-856b802d1d080
+[DA Kube — Selenium Grid using Kubernetes, Docker, Helm and Traefik](https://medium.com/expedia-group-tech/da-kube-selenium-grid-using-kubernetes-docker-helm-and-traefik-856b802d1d080)
 [DA Kube with Selenium v4 Alpha 7](https://medium.com/@eelam.ragavan/selenium-grid-version-4-alpha-6-using-kubernetes-bfee32231c68)
 
 
@@ -30,8 +30,12 @@ Kubernetes version of Distributed Automation
 [DA Kubes] (https://ewegithub.sb.karmalab.net/EWE/da-kubes)
 
 ```
-$ brew install kubernetes-helm
-$ helm init --upgrade
+brew install kubernetes-cli kubernetes-helm
+brew install minikube
+brew cask install virtualbox
+minikube start --kubernetes-version v1.14.0 --vm=true
+minikube addons enable ingress
+kubectl config use-context minikube
 ```
 
 ## Local Setup
