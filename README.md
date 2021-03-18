@@ -155,7 +155,7 @@ kubectl config --kubeconfig=config/test/sa-config set-context svcs-acct-context
 Reference: http://docs.shippable.com/deploy/tutorial/create-kubeconfig-for-self-hosted-kubernetes-cluster/
 ```
 
-Create a config file <name>-config.yaml from the output of above steps - https://github.expedia.biz/Brand-Expedia/da-kubes/blob/master/config/test/sa-config
+Create a config file <name>-config.yaml from the output of above steps
   
   
 ## Update Load Balancer to use DMZ subnet
