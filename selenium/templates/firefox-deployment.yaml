@@ -1,13 +1,16 @@
 {{- if eq true .Values.firefox.enabled -}}
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "selenium.firefox.fullname" . }}
-  namespace: {{ .Release.Name }}
+  namespace: {{ .Values.global.nameSpace }}
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
 spec:
   replicas: {{ .Values.firefox.replicas }}
+  selector:
+    matchLabels:
+      app: {{ template "selenium.firefox.fullname" . }}
   template:
     metadata:
       labels:
@@ -28,6 +31,12 @@ spec:
               protocol: TCP
             {{- end }}
           env:
+            - name: SE_EVENT_BUS_HOST
+              value: {{ template "selenium.hub.fullname" . }}
+            - name: SE_EVENT_BUS_PUBLISH_PORT
+              value: "4442"
+            - name: SE_EVENT_BUS_SUBSCRIBE_PORT
+              value: "4443"
             - name: HUB_PORT_4444_TCP_ADDR
               value: {{ template "selenium.hub.fullname" . }}
             - name: HUB_PORT_4444_TCP_PORT

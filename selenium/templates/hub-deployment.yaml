@@ -1,18 +1,21 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "selenium.hub.fullname" . }}
-  namespace: {{ .Release.Name }}
+  namespace: {{ .Values.global.nameSpace }}
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "selenium.hub.fullname" . }}
   template:
     metadata:
       labels:
         app: {{ template "selenium.hub.fullname" . }}
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
-        release: "{{ .Release.Name }}"
+        release: "{{ .Values.global.nameSpace }}"
         heritage: "{{ .Release.Service }}"
       annotations:
     spec:
@@ -41,8 +44,13 @@ spec:
               port: {{ .Values.hub.port }}
             timeoutSeconds: {{ .Values.hub.readinessTimeout }}
           env:
+            {{- if eq false .Values.hub.selenium4 }}
             - name: JAVA_TOOL_OPTIONS
               value: {{ default "" .Values.hub.javaOpts | quote }}
+            {{ else }}
+            - name: JAVA_TOOL_OPTIONS
+              value: {{ default "" .Values.hub.javaOptsSel4 | quote }}
+            {{- end }}
             - name: SE_OPTS
               value: {{ default "" .Values.hub.seOpts | quote }}
             {{- if .Values.hub.gridNewSessionWaitTimeout }}

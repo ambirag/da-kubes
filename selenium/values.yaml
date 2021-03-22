@@ -4,7 +4,8 @@ global:
   ## can also be spceifed at chart level see below
   nodeSelector:
   #  label: value
-
+  #helm3
+  nameSpace: utap-dakube
   # Default values for traefik.
   # This is a YAML-formatted file.
   # Declare variables to be passed into your templates.
@@ -27,6 +28,8 @@ hub:
 
   ## The port which the hub listens on
   port: 4444
+  port_pub: 4442
+  port_sub: 4443
 
   ## Timeout for probe Hub readiness via HTTP request on Hub console
   readinessTimeout: 10
@@ -36,8 +39,10 @@ hub:
 
   ## Set the JAVA_TOOL_OPTIONS environment variable
   ## If you find your selenium hub is OOMKilled, try adding -XX:+UseSerialGC
+  selenium4: false
   javaOpts: "-Xmx2024m -Dwebdriver.http.factory=apache -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1 -Xms64M"
 
+  javaOptsSel4: "-Xmx2024m -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1 -Xms64M"
   ## Set the SE_OPTS environment variable
   ## ref: http://www.seleniumhq.org/docs/07_selenium_grid.jsp#node-configuration
   # seOpts:
